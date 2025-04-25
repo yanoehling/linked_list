@@ -1,4 +1,4 @@
-class Elemento:
+class Elemento: # define as caracteristas dos elementos
     def __init__(self, valor, proximo):
         self.valor = valor
         self.proximo = proximo
@@ -16,7 +16,7 @@ class ListaEncadeada:
 
     ## INSERÇÃO:
 
-    def inserirNoInicio(self, valor):
+    def inserirNoInicio(self, valor): # coloca o elemento como primeiro da lista
         prox = self.primeiro_elem
         novo = Elemento(valor, prox)
         self.primeiro_elem = novo
@@ -24,7 +24,7 @@ class ListaEncadeada:
             self.ultimo_elem = novo
         self.tamanho += 1  
     
-    def inserirNoFim(self, valor):
+    def inserirNoFim(self, valor): # coloca o elemento como ultimo da lista
         if self.tamanho == 0:
             self.inserirNoInicio(valor)
         else:
@@ -36,7 +36,7 @@ class ListaEncadeada:
                 self.primeiro_elem = novo
             self.tamanho += 1        
     
-    def inserirNaPosicao(self, posicao, valor):
+    def inserirNaPosicao(self, posicao, valor): # coloca o elemento na posicao desejada
         if posicao < 0 or posicao > self.tamanho:
             print("Posicao inválida.")
         elif posicao == 0:
@@ -56,7 +56,7 @@ class ListaEncadeada:
                 elem_atual = prox
                 i += 1
             
-    def inserirAntesDe(self, procurado, valor):
+    def inserirAntesDe(self, procurado, valor):  # coloca o elemento imediatamente antes do valor desejado
         elem_atual = self.primeiro_elem
         while elem_atual != None:
             prox = elem_atual.proximo
@@ -68,7 +68,7 @@ class ListaEncadeada:
             elem_atual = prox
         print("Valor de referência não encontrado.")
 
-    def inserirDepoisDe(self, procurado, valor):
+    def inserirDepoisDe(self, procurado, valor):  # coloca o elemento imediatamente depois do valor desejado
         elem_atual = self.primeiro_elem
         while elem_atual != None:
             prox = elem_atual.proximo
@@ -82,14 +82,14 @@ class ListaEncadeada:
 
     ## REMOÇÃO:
 
-    def removerPrimeiro(self):
+    def removerPrimeiro(self): # remove o elemento que estiver no início da lista
         if self.tamanho > 0:
             self.primeiro_elem = self.primeiro_elem.proximo
             self.tamanho -= 1
         else:
             print(f"Lista já vazia")
 
-    def removerUltimo(self):
+    def removerUltimo(self): # remove o elemento que estiver no final da lista
         elem_atual = self.primeiro_elem
         if elem_atual == self.ultimo_elem:
             self.removerPrimeiro()
@@ -102,7 +102,7 @@ class ListaEncadeada:
                     break
                 elem_atual = elem_atual.proximo
         
-    def removerNaPosicao(self, posicao):
+    def removerNaPosicao(self, posicao): # remove o elemento que estiver na posição escolhida
         if posicao < 0 or posicao >= self.tamanho:
             print("Posicao inválida.")
         elif posicao == 0:
@@ -121,7 +121,7 @@ class ListaEncadeada:
                 elem_atual = prox
                 i += 1
 
-    def removerValor(self, procurado):
+    def removerValor(self, procurado): # remove o valor que escolhido da lista
         elem_atual = self.primeiro_elem
         while elem_atual != None:
             prox = elem_atual.proximo
@@ -134,15 +134,15 @@ class ListaEncadeada:
 
     ## CONSULTA / ACESSO
 
-    def acessaPrimeiro(self):
+    def acessaPrimeiro(self): # retorna o primeiro elemento da lista
         if self.primeiro_elem != None:
-            return self.primeiro_elem.valor
+            return self.primeiro_elem.
     
-    def acessaUltimo(self):
+    def acessaUltimo(self): # retorna o ultimo elemento da lista
         if self.ultimo_elem != None:
-            return self.ultimo_elem.valor
+            return self.ultimo_elem.
     
-    def acessaNaPosicao(self, posicao):
+    def acessaNaPosicao(self, posicao): # retorna o elemento que estiver na posição escolhida
         if posicao < 0 or posicao >= self.tamanho:
             print("Posicao inválida.")
         elif posicao == 0:
@@ -158,7 +158,7 @@ class ListaEncadeada:
                 elem_atual = elem_atual.proximo
                 i += 1
                 
-    def busca(self, valor_buscado):
+    def busca(self, valor_buscado):  # descobre a posição do elemento de valor escolhido
         elem_atual = self.primeiro_elem
         for i in range(self.tamanho - 1):
             if elem_atual.valor == valor_buscado:
@@ -168,7 +168,7 @@ class ListaEncadeada:
 
     # FUNCAO EXTRA (PRINTA COMO LISTA)
 
-    def prt(self):
+    def prt(self): # printa os elementos da lista da forma padrão: [x, y, z]
         lista_string = "["
         elem_atual = self.primeiro_elem
         if elem_atual != None:
