@@ -23,7 +23,7 @@ class ListaEncadeada:
         if self.tamanho == 0:
             self.ultimo_elem = novo
         self.tamanho += 1  
-    
+
     def inserirNoFim(self, valor): # coloca o elemento como ultimo da lista
         if self.tamanho == 0:
             self.inserirNoInicio(valor)
@@ -55,7 +55,7 @@ class ListaEncadeada:
                     break
                 elem_atual = prox
                 i += 1
-            
+
     def inserirAntesDe(self, procurado, valor):  # coloca o elemento imediatamente antes do valor desejado
         elem_atual = self.primeiro_elem
         while elem_atual != None:
@@ -101,7 +101,7 @@ class ListaEncadeada:
                     self.tamanho -= 1
                     break
                 elem_atual = elem_atual.proximo
-        
+
     def removerNaPosicao(self, posicao): # remove o elemento que estiver na posição escolhida
         if posicao < 0 or posicao >= self.tamanho:
             print("Posicao inválida.")
@@ -136,11 +136,11 @@ class ListaEncadeada:
 
     def acessaPrimeiro(self): # retorna o primeiro elemento da lista
         if self.primeiro_elem != None:
-            return self.primeiro_elem.
+            return self.primeiro_elem
     
     def acessaUltimo(self): # retorna o ultimo elemento da lista
         if self.ultimo_elem != None:
-            return self.ultimo_elem.
+            return self.ultimo_elem
     
     def acessaNaPosicao(self, posicao): # retorna o elemento que estiver na posição escolhida
         if posicao < 0 or posicao >= self.tamanho:
@@ -154,10 +154,10 @@ class ListaEncadeada:
             i = 1
             while elem_atual != None:
                 if posicao == i:
-                    return elem_atual.valor
+                    return elem_atual
                 elem_atual = elem_atual.proximo
                 i += 1
-                
+
     def busca(self, valor_buscado):  # descobre a posição do elemento de valor escolhido
         elem_atual = self.primeiro_elem
         for i in range(self.tamanho - 1):
@@ -180,4 +180,25 @@ class ListaEncadeada:
                 lista_string += ", "
         lista_string += "]"
         print(lista_string) 
-            
+
+
+
+l = ListaEncadeada()
+
+l.inserirNoInicio(1)
+l.inserirNoInicio(0)
+l.inserirNoFim(2)
+l.inserirNoFim(3)
+l.inserirNaPosicao(2, "x")
+l.inserirAntesDe("x", ">")
+l.inserirDepoisDe("x", "<")
+l.inserirDepoisDe("<", "...")
+l.prt()
+l.removerValor("...")
+l.removerPrimeiro()
+l.removerUltimo()
+l.removerNaPosicao(2)
+l.prt()
+
+print("valor na posicao 1: ", l.acessaNaPosicao(1).valor)
+print('posicao do valor "<":', l.busca("<"))
