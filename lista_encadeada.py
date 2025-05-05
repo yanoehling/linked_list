@@ -32,8 +32,6 @@ class ListaEncadeada:
             novo = Elemento(valor, prox)
             self.ultimo_elem.setProximo(novo)
             self.ultimo_elem = novo
-            if self.tamanho == 0:
-                self.primeiro_elem = novo
             self.tamanho += 1        
     
     def inserirNaPosicao(self, posicao, valor): # coloca o elemento na posicao desejada
@@ -160,7 +158,7 @@ class ListaEncadeada:
 
     def busca(self, valor_buscado):  # descobre a posição do elemento de valor escolhido
         elem_atual = self.primeiro_elem
-        for i in range(self.tamanho - 1):
+        for i in range(self.tamanho):
             if elem_atual.valor == valor_buscado:
                 return i
             elem_atual = elem_atual.proximo
